@@ -4,7 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Preparatório Polícia Penal Rondônia | JR Aprova</title>
-<meta name="description" content="Preparatório digital Polícia Penal Rondônia: videoaulas por disciplina, PDFs, questões comentadas, legislação e materiais de revisão. Acesso após o pagamento.">
+<meta name="description" content="Preparatório digital Polícia Penal Rondônia com videoaulas, PDFs, questões comentadas e materiais de revisão por disciplina. Pagamento seguro e acesso após confirmação.">
+<link rel="canonical" href="https://pol-cia-penal-gape.vercel.app/">
+<meta name="theme-color" content="#0a3154">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Polícia Penal Rondônia | Preparatório JR Aprova">
+<meta property="og:description" content="Conheça as videoaulas, PDFs e materiais de revisão do preparatório Polícia Penal de Rondônia.">
+<meta property="og:url" content="https://pol-cia-penal-gape.vercel.app/">
 <style>
 :root{--bg:#f6f7fb;--card:#fff;--text:#111;--muted:#62656d;--line:#e8e8ee;--accent:#f4b400;--accent-dark:#d99b00;--dark:#16171d;--shadow:0 24px 60px rgba(11,16,29,.10);--container:min(1180px,calc(100% - 32px))}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f9f9fb 0%,#f2f3f7 100%);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
@@ -55,6 +62,39 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
  .slide-frame img{max-height:300px}
  .carousel-controls{margin:10px 0}
 }
+
+/* Ajustes exclusivos da landing Polícia Penal; o checkout é externo e não foi alterado. */
+a:focus-visible,button:focus-visible{outline:3px solid #0d8a79;outline-offset:3px}
+.jr-penal-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0 0}
+.jr-penal-step{display:flex;gap:12px;align-items:flex-start;border:1px solid #dce9ef;border-radius:16px;padding:15px;background:#fff;box-shadow:0 6px 22px rgba(10,49,84,.04);min-width:0}
+.jr-penal-step-num{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:#e9f7f3;color:#087565;font-weight:900}
+.jr-penal-step strong{display:block;color:#123c55;font-size:14px;line-height:1.3}
+.jr-penal-step small{display:block;color:#5c7281;font-size:13px;line-height:1.4;margin-top:4px}
+.jr-penal-mobile-bar{display:none}
+@media(max-width:760px){
+ .top-offer__inner{justify-content:center;row-gap:2px}
+ .top-offer__inner>span:first-child{font-size:12px;letter-spacing:.02em}
+ .hero-points{gap:11px}
+ .hero-point{font-size:14px}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .stat{padding:12px 8px;border-radius:13px}
+ .stat strong{font-size:20px}
+ .stat span{font-size:11px}
+ .section-head h2{font-size:clamp(25px,8vw,34px);line-height:1.13}
+ .value-card{padding:19px}
+ .offer-box{gap:9px}
+ .jr-penal-steps{grid-template-columns:1fr;gap:9px}
+ .jr-penal-step{padding:11px 12px}
+ .jr-penal-mobile-bar{position:fixed;bottom:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border-top:1px solid #d8e6ed;box-shadow:0 -8px 27px rgba(10,49,84,.14);padding:11px 13px max(11px,env(safe-area-inset-bottom));}
+ .jr-penal-mobile-copy{display:grid;gap:2px;min-width:0}
+ .jr-penal-mobile-copy span{color:#45667a;font-size:11px;font-weight:750;line-height:1.3}
+ .jr-penal-mobile-copy strong{color:#0a3154;font-size:24px;line-height:1.1}
+ .jr-penal-mobile-bar .btn{width:auto;flex:0 0 auto;min-height:48px;padding:0 14px;font-size:13px;border-radius:12px;white-space:nowrap;box-shadow:none}
+ body{padding-bottom:94px}
+ footer{padding-bottom:28px}
+}
+@media(max-width:365px){.jr-penal-mobile-copy strong{font-size:20px}.jr-penal-mobile-bar .btn{font-size:12px;padding:0 10px}}
+@media(prefers-reduced-motion:reduce){.carousel-track,.btn{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -94,7 +134,7 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
           </div>
 
           <div class="stats">
-            <div class="stat"><strong>12</strong><span>aulas e cursos organizados na área</span></div>
+            <div class="stat"><strong>Aulas</strong><span>organizadas por disciplina</span></div>
             <div class="stat"><strong>PDFs</strong><span>materiais complementares</span></div>
             <div class="stat"><strong>LEP</strong><span>e legislação especial</span></div>
             <div class="stat"><strong>Digital</strong><span>estude no celular ou computador</span></div>
@@ -103,7 +143,7 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
 
         <div class="hero-media">
           <div class="hero-image-wrap">
-            <img src="assets/hero.jpeg" alt="Exemplo de recursos para preparação da Polícia Penal">
+            <img fetchpriority="high" loading="eager" src="assets/hero.jpeg" alt="Exemplo de recursos para preparação da Polícia Penal">
           </div>
         </div>
       </div>
@@ -125,6 +165,11 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
         <div class="value-card"><div class="value-icon">🧠</div><h3>Estudo e revisão</h3><p>Conteúdo organizado para acompanhar as aulas e revisar os assuntos centrais do cargo.</p></div>
       </div>
 
+      <div class="jr-penal-steps" aria-label="Como funciona a aquisição">
+        <div class="jr-penal-step"><span class="jr-penal-step-num" aria-hidden="true">1</span><div><strong>Conheça o preparatório</strong><small>Confira os recursos e materiais antes de adquirir.</small></div></div>
+        <div class="jr-penal-step"><span class="jr-penal-step-num" aria-hidden="true">2</span><div><strong>Escolha a forma de pagamento</strong><small>Finalize pelo checkout seguro da JR Aprova, via Pix ou cartão.</small></div></div>
+        <div class="jr-penal-step"><span class="jr-penal-step-num" aria-hidden="true">3</span><div><strong>Receba seu acesso digital</strong><small>Após a confirmação, entre no material da Polícia Penal.</small></div></div>
+      </div>
       <div class="trust-strip">
         <div class="trust-item">✓ Videoaulas e revisão</div>
         <div class="trust-item">✓ PDFs e materiais digitais</div>
@@ -152,15 +197,15 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
         <div>
           <div class="carousel" data-carousel>
             <div class="carousel-track">
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_1.jpeg" alt="Exemplo do material de Português"></div><div class="slide-title">Português</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_2.jpeg" alt="Exemplo do material de Raciocínio Lógico"></div><div class="slide-title">Raciocínio Lógico e Matemática Básica</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_3.jpeg" alt="Exemplo do material de Informática"></div><div class="slide-title">Informática</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_4.jpeg" alt="Exemplo do material de Direito Constitucional"></div><div class="slide-title">Direito Constitucional</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_5.jpeg" alt="Exemplo do material de Direito Penal"></div><div class="slide-title">Noções de Direito Penal</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_6.jpeg" alt="Exemplo do material de Legislação Penal e Processual Penal"></div><div class="slide-title">Legislação Penal e Processual Penal</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_7.jpeg" alt="Exemplo do material de Ética e Administração Pública"></div><div class="slide-title">Ética e Administração Pública</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_8.jpeg" alt="Exemplo do material de Direitos Humanos"></div><div class="slide-title">Direitos Humanos</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/questoes_9.jpeg" alt="Exemplo do material de Atualidades"></div><div class="slide-title">Atualidades</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_1.jpeg" alt="Exemplo do material de Português"></div><div class="slide-title">Português</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_2.jpeg" alt="Exemplo do material de Raciocínio Lógico"></div><div class="slide-title">Raciocínio Lógico e Matemática Básica</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_3.jpeg" alt="Exemplo do material de Informática"></div><div class="slide-title">Informática</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_4.jpeg" alt="Exemplo do material de Direito Constitucional"></div><div class="slide-title">Direito Constitucional</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_5.jpeg" alt="Exemplo do material de Direito Penal"></div><div class="slide-title">Noções de Direito Penal</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_6.jpeg" alt="Exemplo do material de Legislação Penal e Processual Penal"></div><div class="slide-title">Legislação Penal e Processual Penal</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_7.jpeg" alt="Exemplo do material de Ética e Administração Pública"></div><div class="slide-title">Ética e Administração Pública</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_8.jpeg" alt="Exemplo do material de Direitos Humanos"></div><div class="slide-title">Direitos Humanos</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/questoes_9.jpeg" alt="Exemplo do material de Atualidades"></div><div class="slide-title">Atualidades</div></div>
             </div>
           </div>
           <div class="carousel-controls">
@@ -179,10 +224,10 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
         <div>
           <div class="carousel" data-carousel>
             <div class="carousel-track">
-              <div class="slide"><div class="slide-frame"><img src="assets/mapa_1.jpeg" alt="Mapa mental de raciocínio lógico"></div><div class="slide-title">Mapa Mental — Raciocínio Lógico</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/mapa_2.jpeg" alt="Mapa mental de citações e intimações"></div><div class="slide-title">Mapa Mental — Citações e Intimações</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/mapa_3.jpeg" alt="Mapa mental de ação penal"></div><div class="slide-title">Mapa Mental — Ação Penal</div></div>
-              <div class="slide"><div class="slide-frame"><img src="assets/mapa_4.jpeg" alt="Mapa mental de provas e prisão"></div><div class="slide-title">Mapa Mental — Provas e Prisão</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/mapa_1.jpeg" alt="Mapa mental de raciocínio lógico"></div><div class="slide-title">Mapa Mental — Raciocínio Lógico</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/mapa_2.jpeg" alt="Mapa mental de citações e intimações"></div><div class="slide-title">Mapa Mental — Citações e Intimações</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/mapa_3.jpeg" alt="Mapa mental de ação penal"></div><div class="slide-title">Mapa Mental — Ação Penal</div></div>
+              <div class="slide"><div class="slide-frame"><img loading="lazy" decoding="async" src="assets/mapa_4.jpeg" alt="Mapa mental de provas e prisão"></div><div class="slide-title">Mapa Mental — Provas e Prisão</div></div>
             </div>
           </div>
           <div class="carousel-controls">
@@ -215,8 +260,8 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
         <p>Veja imagens de referência da apresentação. Os recursos e aulas disponíveis estão organizados por cargo na plataforma de estudos.</p>
       </div>
       <div class="social-grid">
-        <img src="assets/social_1.jpeg" alt="Prova social com comentários positivos de alunos">
-        <img src="assets/social_2.jpeg" alt="Mais prova social com comentários positivos de alunos">
+        <img loading="lazy" decoding="async" src="assets/social_1.jpeg" alt="Prova social com comentários positivos de alunos">
+        <img loading="lazy" decoding="async" src="assets/social_2.jpeg" alt="Mais prova social com comentários positivos de alunos">
       </div>
     </div>
   </section>
@@ -245,6 +290,11 @@ footer{padding:28px 0 46px;text-align:center;color:#666c74;font-size:14px}
 </main>
 
 <footer><div class="container">JR Aprova • Preparatório Digital Polícia Penal Rondônia • Compra processada pelo checkout JR Aprova</div></footer>
+
+<div class="jr-penal-mobile-bar" aria-label="Comprar preparatório Polícia Penal">
+  <div class="jr-penal-mobile-copy"><span>POLÍCIA PENAL • ACESSO DIGITAL</span><strong>R$ 129,90</strong></div>
+  <a class="btn btn-primary" href="https://semusa-sesau-app.vercel.app/?area=penal#checkoutCard" aria-label="Adquirir preparatório Polícia Penal, R$ 129,90">ADQUIRIR <span aria-hidden="true">→</span></a>
+</div>
 
 <script>
 
