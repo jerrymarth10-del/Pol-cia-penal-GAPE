@@ -95,6 +95,84 @@ a:focus-visible,button:focus-visible{outline:3px solid #0d8a79;outline-offset:3p
 }
 @media(max-width:365px){.jr-penal-mobile-copy strong{font-size:20px}.jr-penal-mobile-bar .btn{font-size:12px;padding:0 10px}}
 @media(prefers-reduced-motion:reduce){.carousel-track,.btn{transition:none!important}html{scroll-behavior:auto}}
+
+/* Mobile-first fix: carousel track never increases the document/grid intrinsic width. */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+.container,.hero-card,.hero-grid,.hero-copy,.hero-media,.hero-image-wrap,
+.value-grid,.proof-grid,.proof-grid>div,.proof-card,.social-grid,.carousel,
+.carousel-track,.slide,.slide-frame,.trust-strip,.jr-penal-steps{min-width:0;max-width:100%}
+.hero-grid,.proof-grid,.value-grid,.social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.value-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.proof-grid{align-items:stretch}
+.proof-grid>div{width:100%;min-width:0}
+.carousel{width:100%;max-width:100%;isolation:isolate;overflow:hidden}
+.carousel-track{display:flex;width:100%;max-width:100%;min-width:0;transform:translateX(0);will-change:transform}
+.carousel-track>.slide{flex:0 0 100%;width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+.slide-frame{height:clamp(290px,39vw,480px);min-height:0;max-width:100%;padding:12px}
+.slide-frame img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;margin:auto}
+.carousel-controls{max-width:100%;min-width:0;flex-wrap:wrap;gap:12px}
+.carousel-controls .dots{min-width:0;max-width:100%;gap:7px}
+.carousel-controls .nav-btn{flex:0 0 44px;width:44px;height:44px}
+@media(max-width:1080px){
+ .hero-grid,.proof-grid,.social-grid{grid-template-columns:minmax(0,1fr)}
+ .value-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:760px){
+ .container{width:calc(100% - 28px);max-width:100%;margin-inline:auto}
+ header.hero{padding:16px 0 8px}
+ .hero-card{border-radius:20px}
+ .hero-copy{padding:20px 17px}
+ .hero-media{padding:14px}
+ .hero-image-wrap{border-radius:16px}
+ .hero-copy h1{font-size:clamp(29px,8.5vw,40px);line-height:1.09;letter-spacing:-.035em;overflow-wrap:break-word}
+ .hero-copy .sub{font-size:15px;line-height:1.55}
+ .eyebrow{padding:7px 10px;font-size:11px;line-height:1.4}
+ .hero-point{font-size:13px;line-height:1.48}
+ .offer-box{padding:13px 14px;border-radius:15px}
+ .offer-price strong{font-size:34px}
+ .btn{width:100%;min-height:49px;padding:12px 14px;text-align:center;font-size:14px}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .value-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+ .value-card{padding:15px 16px;border-radius:15px}
+ .value-icon{width:37px;height:37px;font-size:19px;margin-bottom:8px;border-radius:9px}
+ .value-card h3{font-size:17px}
+ .value-card p{font-size:13px;line-height:1.5}
+ .section-head h2{font-size:clamp(25px,7vw,33px)}
+ .section-head p{font-size:14px;line-height:1.5}
+ .proof-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+ .proof-copy{padding:18px}
+ .proof-copy h3{font-size:23px;line-height:1.14}
+ .proof-copy p,.mini-item{font-size:13px;line-height:1.55}
+ .carousel{width:100%;border-radius:16px}
+ .slide{padding:8px}
+ .slide-frame{width:100%;height:clamp(265px,88vw,390px);min-height:0;border-radius:12px;padding:8px}
+ .slide-frame img{max-height:100%;width:auto;height:auto}
+ .slide-title{font-size:14px;line-height:1.4;min-height:20px;margin-top:9px}
+ .carousel-controls{display:flex;gap:10px;margin:10px 0 14px}
+ .carousel-controls .nav-btn{flex-basis:42px;width:42px;height:42px;box-shadow:none}
+ .carousel-controls .dots{gap:6px;flex:0 1 auto}
+ .carousel-controls .dot{width:9px;height:9px}
+ .carousel-controls .dot.active{width:22px}
+ .trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .trust-item{padding:11px 9px;font-size:12px;line-height:1.4;border-radius:11px}
+ .jr-penal-steps{gap:7px}
+ .jr-penal-step{gap:10px;padding:10px 11px}
+ .final-box{padding:23px 15px;border-radius:20px}
+ .final-box h2{font-size:28px}
+ .final-box p{font-size:14px}
+ .final-price strong{font-size:30px}
+ .jr-penal-mobile-bar{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+ .jr-penal-mobile-copy span{font-size:10px}
+ .jr-penal-mobile-copy strong{font-size:21px}
+ body{padding-bottom:max(102px,calc(86px + env(safe-area-inset-bottom)))}
+}
+@media(max-width:350px){
+ .container{width:calc(100% - 20px)}
+ .trust-strip{grid-template-columns:1fr}
+ .jr-penal-mobile-copy strong{font-size:19px}
+ .jr-penal-mobile-bar .btn{font-size:12px;padding-inline:10px}
+}
+@media(prefers-reduced-motion:reduce){.carousel-track{transition:none}}
 </style>
 </head>
 <body>
@@ -297,42 +375,85 @@ a:focus-visible,button:focus-visible{outline:3px solid #0d8a79;outline-offset:3p
 </div>
 
 <script>
-
-document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+/* Carrosséis da landing Polícia Penal: responsivos, acessíveis e navegáveis por toque. */
+document.querySelectorAll('[data-carousel]').forEach((carousel, carouselIndex) => {
   const track = carousel.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
+  const slides = Array.from(track?.children || []);
   const controls = carousel.parentElement.querySelector('.carousel-controls');
-  const prev = controls.querySelector('.prev');
-  const next = controls.querySelector('.next');
-  const dotsWrap = controls.querySelector('.dots');
+  const prev = controls?.querySelector('.prev');
+  const next = controls?.querySelector('.next');
+  const dotsWrap = controls?.querySelector('.dots');
+  if (!track || !slides.length || !prev || !next || !dotsWrap) return;
   let index = 0;
   let auto = null;
-  const delay = 3600;
+  let visible = false;
+  let touchStartX = null;
+  const delay = 4600;
 
-  slides.forEach((_, i) => {
+  carousel.setAttribute('role', 'region');
+  carousel.setAttribute('aria-roledescription', 'carrossel de materiais');
+  carousel.setAttribute('aria-label', carouselIndex === 0 ? 'Amostras de questões' : 'Exemplos de mapas mentais');
+  carousel.setAttribute('tabindex', '0');
+  carousel.style.touchAction = 'pan-y';
+
+  slides.forEach((slide, i) => {
     const dot = document.createElement('button');
+    dot.type = 'button';
     dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Ver imagem ' + (i + 1) + ' de ' + slides.length);
     dot.addEventListener('click', () => { goTo(i); restart(); });
     dotsWrap.appendChild(dot);
   });
   const dots = Array.from(dotsWrap.children);
-
-  function render(){
-    track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  function render() {
+    track.style.transform = 'translateX(-' + index * 100 + '%)';
+    dots.forEach((dot,i) => {
+      dot.classList.toggle('active', i === index);
+      dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+    slides.forEach((slide,i) => slide.setAttribute('aria-hidden', i === index ? 'false' : 'true'));
   }
-  function goTo(i){ index = (i + slides.length) % slides.length; render(); }
-  function start(){ auto = setInterval(() => goTo(index + 1), delay); }
-  function stop(){ clearInterval(auto); }
-  function restart(){ stop(); start(); }
-
+  function goTo(i) { index = (i + slides.length) % slides.length; render(); }
+  function stop() { if (auto) { clearInterval(auto); auto = null; } }
+  function start() {
+    if (auto || !visible || document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    auto = setInterval(() => goTo(index + 1), delay);
+  }
+  function restart() { stop(); start(); }
   prev.addEventListener('click', () => { goTo(index - 1); restart(); });
   next.addEventListener('click', () => { goTo(index + 1); restart(); });
+  carousel.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    e.preventDefault();
+    goTo(index + (e.key === 'ArrowLeft' ? -1 : 1));
+    restart();
+  });
   carousel.addEventListener('mouseenter', stop);
   carousel.addEventListener('mouseleave', start);
-  carousel.addEventListener('touchstart', stop, {passive:true});
-  carousel.addEventListener('touchend', start);
-
+  carousel.addEventListener('focusin', stop);
+  carousel.addEventListener('focusout', start);
+  carousel.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches?.[0]?.clientX ?? null;
+    stop();
+  }, {passive:true});
+  carousel.addEventListener('touchend', e => {
+    if (touchStartX !== null) {
+      const x = e.changedTouches?.[0]?.clientX;
+      if (typeof x === 'number' && Math.abs(x - touchStartX) > 42) goTo(index + (x < touchStartX ? 1 : -1));
+    }
+    touchStartX = null;
+    restart();
+  }, {passive:true});
+  carousel.addEventListener('touchcancel', () => { touchStartX = null; restart(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else start(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      visible = entries.some(entry => entry.isIntersecting && entry.intersectionRatio > 0.2);
+      if (visible) start(); else stop();
+    }, {threshold:[0,0.2,0.5]}).observe(carousel);
+  } else {
+    visible = true;
+  }
   render();
   start();
 });
