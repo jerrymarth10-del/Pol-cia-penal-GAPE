@@ -1,0 +1,34 @@
+name: Polícia Penal mobile e links de pagamento
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  validar-mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verificar carrosséis, JavaScript e compra específica
+        run: |
+          node <<'NODE'
+          const assert=require('node:assert/strict');
+          const fs=require('node:fs');
+          const vm=require('node:vm');
+          const html=fs.readFileSync('index.html','utf8');
+          const must=(condition,message)=>assert.ok(condition,message);
+          must(/name="viewport" content="width=device-width, initial-scale=1.0"/.test(html),'Viewport mobile');
+          must(html.includes('grid-template-columns:minmax(0,1fr)'), 'Colunas fluidas');
+          must(html.includes('.carousel-track>.slide{flex:0 0 100%'), 'Slide não deve expandir a tela');
+          must(html.includes('overflow-x:clip'), 'Sem rolagem horizontal do documento');
+          must(html.includes('height:clamp(265px,88vw,390px)'), 'Imagem adaptada ao telefone');
+          must((html.match(/data-carousel>/g)||[]).length===2,'Dois carrosséis separados');
+          must((html.match(/class="slide"/g)||[]).length===13,'Preservar 9 amostras de questões e 4 mapas');
+          must((html.match(/https:\/\/semusa-sesau-app\.vercel\.app\/\?area=penal#checkoutCard/g)||[]).length===4, 'Quatro CTAs com o cargo Penal selecionado');
+          must(html.includes('R$ 129,90'),'Preço Polícia Penal preservado');
+          must(!/https:\/\/apostilas-sesau\.vercel\.app\/\?area=penal/.test(html),'Checkout não deve apontar para cargo de saúde SESAU');
+          const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];
+          must(scripts.length>0,'Javascript da página existe');
+          for(const [,script] of scripts)new vm.Script(script);
+          must(html.includes("carousel.addEventListener('touchstart'"),'Navegação por toque');
+          console.log('Validação de integridade e mobile concluída.');
+          NODE
